@@ -7,7 +7,7 @@ import FIRSTInfo from "@/page-components/index/FIRSTInfo.astro";
 import Sponsors from "@/page-components/index/Sponsors.astro";
 ---
 
-<BaseLayout title="Voodoo Voltage" class="flex flex-col items-center gap-8 mt-0! max-w-[2400px] homepage">
+<BaseLayout title="Voodoo Voltage" class="flex flex-col items-center gap-8 mt-0! mx-0! px-0! max-w-[2400px] homepage">
     <Hero />
     <TeamInfo />
     <TeamAccomplishment />
@@ -19,7 +19,7 @@ import Sponsors from "@/page-components/index/Sponsors.astro";
   @reference '@/assets/global.css';
 
   .homepage section {
-    @apply max-w-7xl mx-auto py-8 w-full;
+    @apply max-w-7xl mx-auto py-8 w-full px-4;
   }
 
   .homepage h2 {
@@ -30,6 +30,9 @@ import Sponsors from "@/page-components/index/Sponsors.astro";
     @apply text-primary;
   }
 
+  .homepage p {
+    @apply text-center;
+  }
 
   .homepage .subheading {
     @apply text-2xl font-semibold text-center text-primary;

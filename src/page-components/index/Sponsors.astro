@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-
+import { Picture } from "astro:assets";
 
 const sponsors = await getCollection('sponsors')
 ---
@@ -17,9 +17,21 @@ const sponsors = await getCollection('sponsors')
     </div>
     <vv-sponsors>
         {sponsors.map(({ data }) => (
-            <a href={data.link} href="/sponsor/">
-                <vv-sponsor astro-prefetch="tap">
-                    {data.name}
+            <a href={data.link} astro-prefetch="tap">
+                <vv-sponsor>
+                    {data.logo ? (
+                        <Picture 
+                            src={data.logo} 
+                            alt={data.alt}
+                            layout="constrained"
+                            fit="scale-down"
+                            position="center"
+                            pictureAttributes={{ class: 'h-full w-full' }}
+                            class="object-scale-down h-full w-full"
+                        />
+                    ) : (
+                        <span class="sponsor-name">{data.name}</span>
+                    )}
                 </vv-sponsor>
             </a>
         ))}
@@ -34,6 +46,12 @@ const sponsors = await getCollection('sponsors')
     }
 
     vv-sponsor {
-        @apply block p-8 border-1 rounded-full flex-1 border-secondary bg-secondary/10 hover:bg-secondary/20;
+        @apply p-8 border-2 rounded-lg border-secondary bg-white hover:bg-gray-50 flex items-center justify-center;
+        width: 300px;
+        height: 150px;
+    }
+    
+    .sponsor-name {
+        @apply text-center font-medium text-primary;
     }
 </style>
