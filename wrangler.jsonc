@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "frc4087",
+  "name": "vv-website",
   "compatibility_date": "2025-06-13",
   "assets": {
     "directory": "./dist"
