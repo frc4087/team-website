@@ -1,0 +1,41 @@
+---
+import Picture from "astro/components/Picture.astro";
+import HeroBackground from '@/assets/team/building-reef.png'
+import { Icon } from "astro-icon/components";
+---
+<vv-hero class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full items-center content-center">
+    <vv-heading class="block prose">
+        <h1 class="text-primary font-bold">Want to Join Voodoo Voltage?</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices purus augue. Vivamus sed turpis molestie, ultricies augue at, rutrum felis. 
+            Aenean congue nisi in magna posuere, a ornare mauris ornare. Mauris mattis felis enim, ut ultrices tellus suscipit a.
+        </p>
+        <vv-cta-btns class="flex gap-4 mt-8 justify-center md:justify-start">
+            <a class="btn btn-primary" href="mailto:deady@bfhsla.org?subject=Joining%20The%20Robotics%20Team">
+                Email to Join
+                <Icon name="lucide:send-horizontal" />
+            </a>
+            <a class="btn btn-secondary btn-outline" href="#mentors">
+                Interested in Mentoring?
+            </a>
+        </vv-cta-btns>
+    </vv-heading>
+    <Picture
+        src={HeroBackground}
+        alt="The team building a practice reef"
+        layout="constrained"
+        position="center"
+        pictureAttributes={{ class: 'w-fit mx-auto' }}
+        class='rounded-sm'
+        decoding={"sync"}
+        loading={"eager"}
+    />
+</vv-hero>
+
+<style>
+    @reference '@/assets/global.css';
+
+    h1, p {
+        @apply text-center md:text-left;
+    }
+</style>

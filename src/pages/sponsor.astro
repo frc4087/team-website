@@ -1,0 +1,73 @@
+---
+import BaseLayout from "@/page-layouts/BaseLayout.astro";
+import HeroBackground from '@/assets/team/stands-go-vv.png'
+import { Icon } from "astro-icon/components";
+import Picture from "astro/components/Picture.astro";
+---
+<BaseLayout title="Sponsor the Team">
+    <vv-hero class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full items-center content-center">
+        <vv-heading class="block prose">
+            <h1 class="text-primary font-bold">Support Through Sponsorship</h1>
+            <p>
+                Supporting Voodoo Voltage means investing in STEM education, youth leadership, and hands-on engineering experience. 
+                Your sponsorship directly funds materials, tools, travel for competitions, and outreach.
+            </p>
+            <vv-cta-btns class="flex gap-4 mt-8 justify-center md:justify-start">
+                <a class="btn btn-primary" href="mailto:deady@bfhsla.org?subject=Mentoring%20For%20Voodoo%20Voltage">
+                    Start with an Email
+                    <Icon name="lucide:send-horizontal" />
+                </a>
+                <a class="btn btn-secondary btn-outline" href="/mentor/">
+                    Interested in Mentoring?
+                </a>
+            </vv-cta-btns>
+        </vv-heading>
+        <Picture
+            src={HeroBackground}
+            alt="A parent and student in the stands cheering with a 'Go Voodoo Voltage' sign"
+            layout="constrained"
+            position="center"
+            pictureAttributes={{ class: 'w-fit mx-auto' }}
+            class='rounded-sm'
+            decoding={"sync"}
+            loading={"eager"}
+        />
+    </vv-hero>
+    <section>
+        <h2>What do sponsors receive?</h2>
+        <p>
+            All sponsors are recognized on our website and at events. Higher-tier sponsors are featured on our robot, team shirts, banners, and social media.
+        </p>
+        <p>TODO: Add information about tiers</p>
+    </section>
+    <section>
+        <h2>Is my donation tax-deductible?</h2>
+        <p>
+            Yes! We operate under a 501(c)(3) nonprofit umbrella, so all donations are tax-deductible. We can provide documentation upon request.
+        </p>
+    </section>
+    <section>
+        <h2>How do I become a sponsor?</h2>
+        <p>
+            Please contact 
+            <a class="link link-primary" href="mailto:deady@bfhsla.org?subject=Mentoring%20For%20Voodoo%20Voltage">Darren Eady</a>, 
+            our school sponsor.
+        </p>
+    </section>
+</BaseLayout>
+
+<style>
+    @reference '@/assets/global.css';
+
+    section {
+        @apply text-center prose w-full max-w-3xl mx-auto;
+    }
+
+    h2 {
+        @apply text-primary;
+    }
+
+    vv-hero :is(h1, p) {
+        @apply text-center md:text-left;
+    }
+</style>

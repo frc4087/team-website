@@ -1,0 +1,85 @@
+---
+import BaseLayout from "@/page-layouts/BaseLayout.astro";
+import HeroBackground from '@/assets/team/space-suit.png'
+import { Icon } from "astro-icon/components";
+import Picture from "astro/components/Picture.astro";
+---
+<BaseLayout title="Mentor the Team">
+    <vv-hero class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full items-center content-center">
+        <vv-heading class="block prose">
+            <h1 class="text-primary font-bold">Mentoring @ Voodo Voltage</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices purus augue. Vivamus sed turpis molestie, ultricies augue at, rutrum felis. 
+                Aenean congue nisi in magna posuere, a ornare mauris ornare. Mauris mattis felis enim, ut ultrices tellus suscipit a.
+            </p>
+            <vv-cta-btns class="flex gap-4 mt-8 justify-center md:justify-start">
+                <a class="btn btn-primary" href="mailto:deady@bfhsla.org?subject=Mentoring%20For%20Voodoo%20Voltage">
+                    Start with an Email
+                    <Icon name="lucide:send-horizontal" />
+                </a>
+                <a class="btn btn-secondary btn-outline" href="/sponsor/">
+                    Interested in Sponsoring?
+                </a>
+            </vv-cta-btns>
+        </vv-heading>
+        <Picture
+            src={HeroBackground}
+            alt="A mentor standing behind a NASA cutout at a regional competition"
+            layout="constrained"
+            position="center"
+            pictureAttributes={{ class: 'w-fit mx-auto' }}
+            class='rounded-sm'
+            decoding={"sync"}
+            loading={"eager"}
+        />
+    </vv-hero>
+    <section>
+        <h2>Who can Mentor?</h2>
+        <p>
+            We welcome mentors from all backgrounds if they are 18 years of age or older. If you're passionate about helping our students grow, we'd love to have you!
+        </p>
+    </section>
+    <section>
+        <h2>What's Required?</h2>
+        <p>
+            Mentors help students through technical challenges, project management, and team-building.  
+        </p>
+        <p>
+            Our build season starts in early January and runs until mid-April. At that time, we meet after school from 3:30 PM to 7:00 PM on Mondays, 
+            Wednesdays, and Thursdays, and from 9:00 AM to 5:00 PM on Saturdays.
+        </p>
+        <p>
+            Some mentors attend build sessions daily, others help remotely or seasonally. Time commitment is flexible.
+        </p>
+    </section>
+    <section>
+        <h2>Do I need to be an engineer or programmer?</h2>
+        <p>
+            Not at all! While technical mentors are always helpful, we also need support in areas like grant writing, PR, and logistics.
+        </p>
+    </section>
+    <section>
+        <h2>How do I Sign Up?</h2>
+        <p>
+            Please contact 
+            <a class="link link-primary" href="mailto:deady@bfhsla.org?subject=Mentoring%20For%20Voodoo%20Voltage">Darren Eady</a>, 
+            our school sponsor.
+        </p>
+    </section>
+</BaseLayout>
+
+<style>
+    @reference '@/assets/global.css';
+
+    section {
+        @apply text-center prose w-full max-w-3xl mx-auto;
+    }
+
+    h2 {
+        @apply text-primary;
+    }
+
+    vv-hero :is(h1, p) {
+        @apply text-center md:text-left;
+    }
+</style>

@@ -1,0 +1,103 @@
+---
+import BaseLayout from "@/page-layouts/BaseLayout.astro";
+import HeroBackground from '@/assets/team/building-reef.png'
+import { Icon } from "astro-icon/components";
+import Picture from "astro/components/Picture.astro";
+import BenefitPhoto from '@/assets/team/burger.png'
+---
+<BaseLayout title="Join the Team">
+    <vv-hero class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full items-center content-center">
+        <vv-heading class="block prose">
+            <h1 class="text-primary font-bold">Want to Join Voodoo Voltage?</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices purus augue. Vivamus sed turpis molestie, ultricies augue at, rutrum felis. 
+                Aenean congue nisi in magna posuere, a ornare mauris ornare. Mauris mattis felis enim, ut ultrices tellus suscipit a.
+            </p>
+            <vv-cta-btns class="flex gap-4 mt-8 justify-center md:justify-start">
+                <a class="btn btn-primary" href="mailto:deady@bfhsla.org?subject=Joining%20The%20Robotics%20Team">
+                    Email to Join
+                    <Icon name="lucide:send-horizontal" />
+                </a>
+                <a class="btn btn-secondary btn-outline" href="/mentor/">
+                    Interested in Mentoring?
+                </a>
+            </vv-cta-btns>
+        </vv-heading>
+        <Picture
+            src={HeroBackground}
+            alt="The team building a practice reef"
+            layout="constrained"
+            position="center"
+            pictureAttributes={{ class: 'w-fit mx-auto' }}
+            class='rounded-sm'
+            decoding={"sync"}
+            loading={"eager"}
+        />
+    </vv-hero>
+    <section>
+        <h2>Membership Benefits</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-32 w-full items-center content-center text-center md:text-left">
+            <p class="my-0!">
+                Lorem ipsum vel dui pharetra, ultricies neque quis, dapibus ex. Quisque orci sem, commodo quis lacus vel, semper commodo tellus. Aliquam vestibulum ipsum a odio varius tempus.
+            </p>
+            <Picture
+                src={BenefitPhoto}
+                alt="A teammate eating a burger at a regional competition"
+                pictureAttributes={{ class: 'w-fit h-fit mx-auto my-0!'}}
+                class="rounded-sm max-h-100 w-auto"
+            />
+        </div>
+    </section>  
+    <section>
+        <h2>Who can Join?</h2>
+        <p>
+            Any student from Benjamin Franklin High School (BFHS) in grades 9-12 who is interested in robotics is welcome to join. No experience is required!
+        </p>
+    </section>
+    <section>
+        <h2>What's Required?</h2>
+        <p>
+            During the first semester, we meet a few times a week after school for two hours each session to teach both new and returning members how to build our robot.  
+        </p>
+        <p>
+            Our build season starts in early January and runs until mid-April. At that time, we meet after school from 3:30 PM to 7:00 PM on Mondays, 
+            Wednesdays, and Thursdays, and from 9:00 AM to 5:00 PM on Saturdays. Members are not required to attend every meeting.
+        </p>
+    </section>
+    <section>
+        <h2>Do I need Robotics Experience?</h2>
+        <p>
+            No! Most of our team members start with no experience.
+        </p>
+    </section>
+    <section>
+        <h2>Power Tools and High School Students: Is That Safe?</h2>
+        <p>
+            Absolutely! Each year, all our members must be recertified in the use of our power tools. This includes attending safety presentations and receiving guidance on how to use each tool from mentors, many of whom have years of experience in FRC. Additionally, throughout the year, students are almost always supervised by two or more adults while using power tools.
+        </p>
+    </section>
+    <section>
+        <h2>How do I Join?</h2>
+        <p>
+            You can register at the annual BFHS Club Fair or contact 
+            <a class="link link-primary" href="mailto:deady@bfhsla.org?subject=Joining%20The%20Robotics%20Team">Darren Eady</a>, 
+            our school sponsor.
+        </p>
+    </section>
+</BaseLayout>
+
+<style>
+    @reference '@/assets/global.css';
+
+    section {
+        @apply text-center prose w-full max-w-3xl mx-auto;
+    }
+
+    h2 {
+        @apply text-primary;
+    }
+
+    vv-hero :is(h1, p) {
+        @apply text-center md:text-left;
+    }
+</style>

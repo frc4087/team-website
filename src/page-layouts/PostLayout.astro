@@ -1,7 +1,6 @@
 ---
 import ContentTagArray from "@/page-components/common/ContentTagArray.astro"
 import BaseLayout, {type Props as BaseLayoutProps } from "./BaseLayout.astro"
-import VVLink from "@/page-components/common/VVLink.astro"
 import { Icon } from 'astro-icon/components';
 
 export interface Props extends BaseLayoutProps {
@@ -23,10 +22,10 @@ const {transitionName, publishedDate, description, tags, title } = Astro.props
             </time>
         </heading>
         <slot />
-        <VVLink href="/posts/">
+        <a class="link link-primary flex items-center gap-1" href="/posts/">
             <span>Back to Posts</span>
             <Icon name="lucide:arrow-right" />
-        </VVLink>
+        </a>
     </article>
     <slot name="templates" slot="templates"/>
 </BaseLayout>
