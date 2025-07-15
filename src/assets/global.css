@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui" {
+    themes: forest --default, forest --prefersdark;
+}
+
+@utility card {
+    @apply bg-base-100 shadow-lg border-1 border-base-content;
+}
+
+@utility card-padded {
+    @apply p-4 sm:p-8;
+}
+
+html {
+    font-family: var(--font-lexend);
+}
+
+.readers-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

@@ -1,0 +1,70 @@
+---
+import ContentTagArray from "@/page-components/common/ContentTagArray.astro"
+import BaseLayout, {type Props as BaseLayoutProps } from "./BaseLayout.astro"
+import VVLink from "@/page-components/common/VVLink.astro"
+import { Icon } from 'astro-icon/components';
+
+export interface Props extends BaseLayoutProps {
+    transitionName: string
+    publishedDate: Date
+    description: string
+    tags: string[]
+}
+const {transitionName, publishedDate, description, tags, title } = Astro.props
+---
+<BaseLayout {...Astro.props} class:list={["max-w-3xl mx-auto px-0!"]}>
+    <article class="post-layout max-w-3xl mx-auto prose text-justify bg-[var(--color-alt-background)] sm:shadow-lg sm:border-1 border-base-content/20 card-padded sm:rounded-sm pt-8">
+        <heading transition:name={transitionName} transition:animate="fade" class="block prose text-justify max-w-3xl mx-auto">
+            <h1 class="mb-0 text-center leading-12 max-w-2xl mx-auto">{title}</h1>
+            <p class="mb-2">{description}</p>
+            <ContentTagArray tags={tags} class="my-4"/>
+            <time datetime={publishedDate.toISOString()} class="prose-sm leading-8">
+                Published on {publishedDate.toLocaleDateString('en', { month: '2-digit',  day: '2-digit', year: 'numeric' })}
+            </time>
+        </heading>
+        <slot />
+        <VVLink href="/posts/">
+            <span>Back to Posts</span>
+            <Icon name="lucide:arrow-right" />
+        </VVLink>
+    </article>
+    <slot name="templates" slot="templates"/>
+</BaseLayout>
+
+<style is:global>
+    @reference "@/assets/global.css";
+
+    article.post-layout h2 {
+        @apply mt-8 mb-4;
+    }
+
+    article.post-layout ol, 
+    article.post-layout ul {
+        @apply mt-0;
+    }
+
+    article.post-layout li:first-of-type {
+        @apply mt-0;
+    }
+
+    article.post-layout details {
+        @apply cursor-pointer;
+    }
+
+    article.post-layout h1,
+    article.post-layout h2,
+    article.post-layout h3,
+    article.post-layout h4,
+    article.post-layout h5,
+    article.post-layout h6 {
+        @apply cursor-pointer;
+    }
+
+    article.post-layout .remove-pre-padding > pre {
+        @apply p-0! m-0!;
+    }
+
+    article.post-layout pre {
+        @apply border-1 border-base-content/20
+    }
+</style>

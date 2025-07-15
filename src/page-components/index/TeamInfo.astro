@@ -1,0 +1,64 @@
+---
+import Picture from "astro/components/Picture.astro"
+import TeamPhoto from "@/assets/team/pit.png"
+---
+<section>
+    <h2>Be Inspired, Inspire Others</h2>
+    <p class="subheading italic">FRC Team 4087 - Voodoo Voltage</p>
+    <Picture 
+        src={TeamPhoto}
+        alt={"Team photo"}
+        layout="full-width"
+        position="center"
+        pictureAttributes={{
+            class: "block max-w-2xl mx-auto my-4"
+        }}
+        class="mx-auto"
+    />
+
+    <div class="prose mx-auto">
+        <p>
+            Team 4087 (Voodoo Voltage) is a student-led robotics team founded in 2012 out of 
+            <a href="https://www.bfhsla.org/" style="link link-primary">Benjamin Franklin High School (BFHS)</a> in New Orleans, Louisiana, USA.
+        </p>
+        <p>
+            We compete in the international <a href="https://www.firstinspires.org/robotics/frc" style="link link-primary">FIRST Robotics Competition (FRC)</a>, 
+            where we design, build, and program industrial-grade robots. 
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-8">
+            <a href="https://www.bfhsla.org/" class="contents">
+                <Picture
+                    src={'https://static.wixstatic.com/media/e6bdc9_9e876e6d3ee44a9e860f83e8afc9774a~mv2.png/v1/fill/w_114,h_109,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Primary%20Logo%20in%20white%20no%20TEXT.png'}
+                    alt="Benjamin Franklin High School (BFHS) Logo"
+                    layout="fixed"
+                    height={80}
+                    width={80}
+                    pictureAttributes={{
+                        class: 'm-0!'
+                    }}
+                />
+            </a>
+            <a href="https://www.firstinspires.org/robotics/frc" class="contents">
+                <Picture
+                    src={'https://www.firstinspires.org/sites/all/themes/first/assets/images/2020/first-horz-rgb.png'}
+                    alt="FIRST Logo"
+                    layout="fixed"
+                    height={100}
+                    width={100}
+                    pictureAttributes={{
+                        class: 'bg-white p-2 rounded-sm m-0!'
+                    }}
+                />
+            </a>
+        </div>
+        <p>
+            We aim to empower students through STEM and contribute to a FIRST community that creates opportunities to 
+            expand knowledge, benefit society, and inspire the world through discovery and innovation.
+        </p>
+        <div class="flex items-center justify-center mx-auto mt-8">
+            <a class="btn btn-primary" href="/join/">
+                Learn How To Join 4087 →
+            </a>
+        </div>
+    </div>
+</section>

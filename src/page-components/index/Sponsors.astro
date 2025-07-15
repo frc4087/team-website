@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+
+
+const sponsors = await getCollection('sponsors')
+---
+<section>
+    <h2>We ❤️ Our Sponsors!</h2>
+    <p class="prose mx-auto my-8">
+        Thank you to all the fantastic sponsors who help make FRC Team 4087 possible. 
+        We are incredibly grateful for their support and encourage you to visit their websites to learn more about other projects.
+    </p>
+    <div class="flex items-center justify-center mx-auto mb-8">
+        <a class="btn btn-primary" href="/sponsor/">
+            Learn How To Sponsor 4087 →
+        </a>
+    </div>
+    <vv-sponsors>
+        {sponsors.map(({ data }) => (
+            <a href={data.link} href="/sponsor/">
+                <vv-sponsor astro-prefetch="tap">
+                    {data.name}
+                </vv-sponsor>
+            </a>
+        ))}
+    </vv-sponsors>
+</section>
+
+<style>
+    @reference '@/assets/global.css';
+
+    vv-sponsors {
+        @apply flex flex-wrap items-center justify-center gap-4;
+    }
+
+    vv-sponsor {
+        @apply block p-8 border-1 rounded-full flex-1 border-secondary bg-secondary/10 hover:bg-secondary/20;
+    }
+</style>

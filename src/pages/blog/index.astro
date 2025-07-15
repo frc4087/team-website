@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/page-layouts/BaseLayout.astro";
+import ContentItem from "@/page-components/common/ContentItem.astro";
+
+const blog = await getCollection('blog', ({ data }) => !data.draft )
+  .then(posts => {
+    posts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+    return posts;
+  });
+---
+<BaseLayout title="Posts" class="flex flex-col items-center">
+    <heading class="prose mb-4">
+        <h1>Blog</h1>
+    </heading>
+    <ul>
+    {blog.map((post) => (
+        <ContentItem 
+            name={post.data.title} 
+            link={`/blog/${post.id}/`} 
+            transitionName={`post-${post.id}`}
+            tags={post.data.tags}
+            date={post.data.publishDate}
+        >
+        {post.data.description}
+        </ContentItem>
+    ))}
+    </ul>
+</BaseLayout>
+
+
+<style>
+    @reference "@/assets/global.css";
+
+    ul {
+        @apply prose flex flex-col gap-4;
+    }
+</style>

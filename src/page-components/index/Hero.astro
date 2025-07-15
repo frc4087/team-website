@@ -1,0 +1,26 @@
+---
+import Picture from "astro/components/Picture.astro";
+import HeroBackground from '@/assets/hero-background.png'
+import VoodooVoltageLogo from '@/assets/logos/voodoo-voltage-white.png'
+---
+<vv-hero class="block relative w-full h-100 sm:h-200">
+    <h1 class="readers-only">Voodoo Voltage - FRC Team 4086</h1>
+    <Picture
+        src={HeroBackground}
+        alt="Lightning storm on a bayou"
+        layout="fixed"
+        decoding={"sync"}
+        loading={"eager"}
+        class:list={["h-full w-full object-cover"]}
+    />
+    <div class="z-2 absolute top-0 bottom-0 flex flex-col justify-center items-center w-full">
+    <Picture
+        src={VoodooVoltageLogo}
+        alt="Voodoo Voltage Logo"
+        layout="fixed"
+        class={"w-auto h-75 sm:h-150"}
+        decoding={"sync"}
+        loading={"eager"}
+    />
+    </div>
+</vv-hero>

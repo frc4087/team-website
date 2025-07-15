@@ -1,0 +1,12 @@
+---
+export interface Props {
+    tags: string[]
+    class?: string
+}
+const { tags, class: className } = Astro.props
+---
+{tags.length > 0 && (
+    <item-tags class:list={["flex gap-2 flex-wrap", className]}>
+        {tags.map(t => <item-tag class="badge badge-info rounded-full font-bold">{t}</item-tag>)}
+    </item-tags>
+)}

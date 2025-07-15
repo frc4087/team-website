@@ -1,0 +1,41 @@
+---
+import TeamPhoto from '@/assets/team/holding-sign.png'
+import Picture from 'astro/components/Picture.astro'
+---
+<section>
+    <h2>What is FIRST Robotics?</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-8">
+        <div class="prose mx-auto">
+            <h3>The Program</h3>
+            <p>
+                FIRST(For Inspiration and Recognition of Science and Technology) was founded in 1989 to inspire young 
+                people's interest and participation in science and technology.
+            </p>
+            <p>
+                With a goal of bringing the excitement of sports to STEM, the FIRST Robotics Competition (FRC) has
+                students, teachers, and mentors work together on a robotics challenge involving fabrication, design, 
+                and programming.
+            </p>
+        </div>
+        <Picture
+            src={TeamPhoto}
+            alt="Team photo"
+        />
+        <div class="prose mx-auto">
+            <h3>Next Year's Competition</h3>
+            <p>
+                Each year, a new competition is released at the begin of January. 
+                All FRC teams learn about the challenge and its rules at the same time, kicking off the competition season.
+            </p>
+            <p>
+                We know the 2025-2026 season is called <a href="https://info.firstinspires.org/first-age" class="link">FIRST - Age</a> and 
+                that the robotics challenge is called <em class="text-primary font-bold">REBUILT</em> and will require teams 
+                to "re-imagine the past". The rest we'll find on January 10, 2026!
+            </p>
+        </div>
+        <video autoplay="" muted="" loop="" playsinline="">
+            <source src="https://info.firstinspires.org/hubfs/Age/AGE_LogoAni_1920x750.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
