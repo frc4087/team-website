@@ -3,22 +3,52 @@ import "@/assets/global.css";
 import { ClientRouter } from 'astro:transitions'
 import Nav from "@/page-components/common/Nav.astro"
 import { Font } from 'astro:assets';
+import Headstart, { type Props as HeadstartProps } from 'astro-headstart';
+import type { Thing } from "schema-dts";
+import { vvWebsite } from "@/page-schema/website";
 
 export interface Props {
     title: string
 	class?: string
+	jsonLd?: Thing[]
+	preview?: HeadstartProps['socials']
 }
-const { title, class: className } = Astro.props
+const { title, preview, jsonLd, class: className } = Astro.props
+
+const websiteSchema = await vvWebsite()
+const additionalSchema = jsonLd || []
+const socials: HeadstartProps['socials'] = {
+	...preview,
+}
+socials.title = socials.title ?? title
+socials.description = socials.description ?? 'FIRST Robotics Team 4087 - Voodoo Voltage'
+socials.image = socials.image ?? {
+	url: new URL('icon.png', Astro.site),
+	alt: "Voodoo Voltage Logo",
+	height: 110,
+	width: 110
+}
+socials.url = socials.url ?? Astro.site
 ---
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/png" href="/icon.png" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{`${title} | FRC Team 4087`}</title>
-		<ClientRouter />
-		<Font cssVariable='--font-lexend' preload />
+		<Headstart
+			title={`${title} | Voodoo Voltage`}
+			charset="utf-8"
+			description={socials.description}
+			viewport={{ width: "device-width", "initial-scale": 1 }}
+			robots={['noindex', 'nofollow', 'noarchive', 'nocache', 'none']}
+			generators={[Astro.generator]}
+			colorSchemes={[{ scheme: 'light dark' }]}
+			jsonLd={[...websiteSchema, ...additionalSchema]}
+			generators={[Astro.generator]}
+			socials={socials}
+		>
+			<link rel="icon" type="image/png" href="/icon.png" />
+			<ClientRouter />
+			<Font cssVariable='--font-lexend' preload />
+			<slot name="script"/>
+		</Headstart>
 	</head>
 	<body class="relative">
 		<Nav/>

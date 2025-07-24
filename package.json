@@ -9,10 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/mdx": "^4.3.1",
     "@astrojs/sitemap": "^3.4.1",
     "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.11.0",
+    "astro": "^5.12.2",
+    "astro-headstart": "^0.1.0",
     "astro-icon": "^1.1.5",
     "daisyui": "^5.0.46",
     "remark-collapse": "^0.1.2",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.57",
-    "@tailwindcss/typography": "^0.5.16"
+    "@tailwindcss/typography": "^0.5.16",
+    "schema-dts": "^1.1.5"
   }
 }
