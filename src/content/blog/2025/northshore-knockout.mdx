@@ -1,0 +1,40 @@
+---
+title: "Northshore Knockout 2025"
+description: >
+    The team describes their experience at Northshore Knockout, an annual off-season robotics competition hosted by our neighboors at Mandeville High School.
+publishDate: 2025-07-24
+featured: true
+tags: ["Offseason", "Competition"]
+---
+import { Picture } from 'astro:assets';
+
+import Figure from '@/page-components/blog/Figure.astro';
+import TwoColumnContent from '@/page-components/blog/ContentRow.astro';
+
+import teamPhoto from '@/assets/blog/2025/northshore-knockout/team-photo.jpg';
+import spirit from '@/assets/blog/2025/northshore-knockout/spirit-award.jpg';
+import field from '@/assets/blog/2025/northshore-knockout/field.jpg';
+
+<TwoColumnContent>
+Recently, Voodoo Voltage (4087) competed in [Northshore Knockout](https://mandevillerobotics.org/northshore-knockout/), a local off-season competition hosted by Mandeville High's team, S.S. Prometheus (2992). It was an exciting chance for our returning members to get some robotics in over the summer and get back into the groove. With 20 other teams competing, it was fairly small, but there was just as much team spirit as always. We would like to thank Ramageddon (4336) for the Team Spirit award they gave us!
+<Figure>
+    <Picture src={teamPhoto} alt="Five students standing next to their robot Larry waiting for a match." />
+    <span slot="caption">The team queues up with Larry before a match.</span>
+</Figure>
+</TwoColumnContent>
+
+<TwoColumnContent>
+Northshore Knockout was also a huge success for Larry (our awesome Reefscape robot), 4087 being Captain of Alliance 2. With the help of Denham Venom's secondary robot (9994) and Nunez Robotics (9456), we finished second place overall! Larry continues to be the top L1 scoring robot globally, and was the second highest scoring robot after Denham Venom's formidable main robot (8044). 
+<Figure>
+    <Picture src={spirit} alt="Two red gears on a award mount that fits in a student's hand." />
+    <span slot="caption">The _Team Spirit_ award given to Voodoo Voltage by Ramageddon.</span>
+</Figure>
+</TwoColumnContent>
+
+<TwoColumnContent>
+Our great success this competition and season wouldn't be possible without our awesome alliance partners, phenomenal drive team, efficient pit crew, impressive automation team, and insightful mentors. And of course, a huge thank you to our sponsors that allowed us to build our robot and attend competitions. One last shoutout to the parents, we greatly appreciate all the support we get from y'all!
+<Figure>
+    <Picture src={field} alt="PVC game pieces fill a trough as part of the REEFSCAPE game." />
+    <span slot="caption">A full L1 trough - Larry's speciality.</span>
+</Figure>
+</TwoColumnContent>

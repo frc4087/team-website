@@ -1,0 +1,19 @@
+<vv-content-row>
+    <slot />
+</vv-content-row>
+
+<style is:global>
+    @reference '@/assets/global.css';
+
+    vv-content-row {
+        @apply flex flex-col md:flex-row md:flex-wrap-reverse items-center gap-0 md:gap-8;
+    }
+
+    vv-content-row > * {
+        flex: 1;
+    }
+
+    vv-content-row:nth-child(odd) {
+        @apply flex-col md:flex-row-reverse md:flex-wrap;
+    }
+</style>
